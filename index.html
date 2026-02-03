@@ -59,7 +59,7 @@ body.blue {
 body {
   background: radial-gradient(circle at top, var(--bg2), var(--bg));
   color: var(--text);
-  transition: background 0.4s, color 0.4s;
+  transition: 0.4s;
 }
 
 /* ===== HEADER ===== */
@@ -79,107 +79,126 @@ header {
   color: var(--accent);
 }
 
-/* ===== THEME SWITCH ===== */
-.theme-switch {
+.nav {
   display: flex;
-  gap: 12px;
+  align-items: center;
+  gap: 32px;
 }
 
-.theme-btn {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 2px solid var(--muted);
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.theme-btn:hover {
-  transform: scale(1.1);
-  border-color: var(--accent);
+.nav a:hover {
+  color: var(--accent);
 }
 
-.dark-btn { background: #0b0f1a; }
-.light-btn { background: #ffffff; }
-.red-btn { background: #ff0033; }
-.blue-btn { background: #3b82f6; }
+/* ===== DROPDOWN ===== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-btn {
+  background: var(--card);
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 48px;
+  background: var(--card);
+  border-radius: 14px;
+  padding: 12px;
+  display: none;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.dropdown.open .dropdown-menu {
+  display: block;
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.theme-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+
+.dark { background:#0b0f1a; }
+.light { background:#fff; border:1px solid #ccc;}
+.red { background:#ff0033; }
+.blue { background:#3b82f6; }
 
 /* ===== HERO ===== */
 .hero {
   padding: 80px 48px;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 48px;
-  align-items: center;
 }
 
 .hero h1 {
   font-size: 3rem;
 }
 
-.hero h1 span {
+.hero span {
   background: linear-gradient(90deg, var(--accent), var(--accent2));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .hero p {
-  margin-top: 20px;
+  margin-top: 16px;
   color: var(--muted);
-  font-size: 1.1rem;
 }
 
-.hero-box {
-  background: linear-gradient(145deg, var(--card), var(--bg2));
-  border-radius: 20px;
-  padding: 40px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+/* ===== AUTA SECTION ===== */
+#auta {
+  padding: 60px 48px;
 }
 
-/* ===== CATEGORIES ===== */
-.categories {
-  padding: 40px 48px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-  gap: 24px;
+.switch {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 32px;
 }
 
-.category {
+.switch button {
   background: var(--card);
-  padding: 32px;
-  border-radius: 18px;
-  text-align: center;
-  transition: 0.3s;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 14px;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1rem;
 }
 
-.category:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+.switch button.active {
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  color: #000;
 }
 
 /* ===== PRODUCTS ===== */
-.section-title {
-  padding: 40px 48px 20px;
-  font-size: 2rem;
-}
-
 .products {
-  padding: 0 48px 80px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
   gap: 32px;
 }
 
 .product {
+  height: 240px;
   background: linear-gradient(145deg, var(--card), var(--bg2));
   border-radius: 18px;
-  height: 260px;
-  transition: 0.3s;
-}
-
-.product:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 50px rgba(0,0,0,0.5);
 }
 
 /* ===== FOOTER ===== */
@@ -189,21 +208,6 @@ footer {
   background: var(--bg2);
   color: var(--muted);
 }
-
-footer .links {
-  margin-top: 12px;
-}
-
-footer .links span {
-  margin: 0 12px;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-}
 </style>
 </head>
 
@@ -212,61 +216,79 @@ footer .links span {
 <header>
   <div class="logo">RC<span>zdobnice</span></div>
 
-  <div class="theme-switch">
-    <div class="theme-btn dark-btn" onclick="setTheme('dark')"></div>
-    <div class="theme-btn light-btn" onclick="setTheme('light')"></div>
-    <div class="theme-btn red-btn" onclick="setTheme('red')"></div>
-    <div class="theme-btn blue-btn" onclick="setTheme('blue')"></div>
+  <div class="nav">
+    <a onclick="scrollToAuta()">Auta</a>
+
+    <div class="dropdown" id="dropdown">
+      <div class="dropdown-btn" onclick="toggleDropdown()">🎨 Mód</div>
+      <div class="dropdown-menu">
+        <div class="theme-option" onclick="setTheme('dark')">
+          <div class="theme-dot dark"></div> Dark
+        </div>
+        <div class="theme-option" onclick="setTheme('light')">
+          <div class="theme-dot light"></div> White
+        </div>
+        <div class="theme-option" onclick="setTheme('red')">
+          <div class="theme-dot red"></div> Red
+        </div>
+        <div class="theme-option" onclick="setTheme('blue')">
+          <div class="theme-dot blue"></div> Blue
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 
 <section class="hero">
-  <div>
-    <h1>RC auta<br><span>bez kompromisů</span></h1>
-    <p>Drift a offroad RC modely. Styl, výkon a kontrola v každém módu.</p>
-  </div>
-
-  <div class="hero-box">
-    <h3>🎨 Barevné módy</h3>
-    <p>Přepínej vzhled webu podle nálady.</p>
-  </div>
+  <h1>RC auta <span>bez kompromisů</span></h1>
+  <p>Vyber si kategorii a styl jízdy.</p>
 </section>
 
-<section class="categories">
-  <div class="category">
-    🏁
-    <h3>Drift</h3>
+<section id="auta">
+  <div class="switch">
+    <button class="active" onclick="showCategory('drift', this)">🏁 Drift</button>
+    <button onclick="showCategory('offroad', this)">🏔️ Offroad</button>
   </div>
 
-  <div class="category">
-    🏔️
-    <h3>Offroad</h3>
+  <div class="products" id="drift">
+    <div class="product"></div>
+    <div class="product"></div>
+    <div class="product"></div>
   </div>
-</section>
 
-<h2 class="section-title">Vybrané modely</h2>
-
-<section class="products">
-  <div class="product"></div>
-  <div class="product"></div>
-  <div class="product"></div>
-  <div class="product"></div>
-  <div class="product"></div>
-  <div class="product"></div>
+  <div class="products" id="offroad" style="display:none">
+    <div class="product"></div>
+    <div class="product"></div>
+    <div class="product"></div>
+  </div>
 </section>
 
 <footer>
   © 2026 RCzdobnice
-  <div class="links">
-    <span>Auta</span>
-    <span>Drift</span>
-    <span>Offroad</span>
-  </div>
 </footer>
 
 <script>
+function toggleDropdown() {
+  document.getElementById('dropdown').classList.toggle('open');
+}
+
 function setTheme(theme) {
   document.body.className = theme;
+  toggleDropdown();
+}
+
+function scrollToAuta() {
+  document.getElementById('auta').scrollIntoView({behavior:'smooth'});
+}
+
+function showCategory(id, btn) {
+  document.getElementById('drift').style.display = 'none';
+  document.getElementById('offroad').style.display = 'none';
+  document.getElementById(id).style.display = 'grid';
+
+  document.querySelectorAll('.switch button')
+    .forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
 }
 </script>
 
