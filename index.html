@@ -28,18 +28,18 @@ body.light {
   --muted: #475569;
 }
 
-/* ===== RED (FIXED) ===== */
+/* ===== RED (EXTRA CONTRAST FIX) ===== */
 body.red {
-  --bg: #120406;
-  --bg2: #1e0a0e;
-  --card: #2a0f14;
-  --accent: #ff3355;
-  --accent2: #ff7a7a;
-  --text: #ffecec;
-  --muted: #ffb6b6;
+  --bg: #0d0305;
+  --bg2: #1a070b;
+  --card: #2a0d12;
+  --accent: #ff4d6d;
+  --accent2: #ff9aa9;
+  --text: #fff5f6;
+  --muted: #ffbfc8;
 }
 
-/* ===== BLUE (FIXED) ===== */
+/* ===== BLUE ===== */
 body.blue {
   --bg: #030b18;
   --bg2: #0a1a33;
@@ -125,7 +125,7 @@ header {
 
 .dark { background:#0b0f1a; }
 .light { background:#ffffff; border:1px solid #ccc; }
-.red { background:#ff3355; }
+.red { background:#ff4d6d; }
 .blue { background:#3b82f6; }
 
 /* ===== HERO ===== */
@@ -153,19 +153,22 @@ header {
   padding: 60px 48px;
 }
 
+/* CENTERED SWITCH */
 .switch {
   display: flex;
+  justify-content: center;
   gap: 20px;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 }
 
 .switch button {
   background: var(--card);
   border: none;
-  padding: 14px 28px;
-  border-radius: 14px;
+  padding: 14px 32px;
+  border-radius: 16px;
   color: var(--text);
   cursor: pointer;
+  font-size: 1rem;
 }
 
 .switch button.active {
@@ -213,7 +216,7 @@ footer {
 
 <section class="hero">
   <h1>RC auta <span>bez kompromisů</span></h1>
-  <p>Vyber si styl jízdy a vzhled webu.</p>
+  <p>Vyber si styl jízdy a přizpůsob si vzhled webu.</p>
 </section>
 
 <section id="auta">
