@@ -6,7 +6,7 @@
 <title>RCzdobnice</title>
 
 <style>
-/* ===== THEME VARIABLES ===== */
+/* ===== DEFAULT (DARK) ===== */
 :root {
   --bg: #0b0f1a;
   --bg2: #141a2e;
@@ -17,7 +17,7 @@
   --muted: #9aa0b4;
 }
 
-/* ===== THEMES ===== */
+/* ===== LIGHT ===== */
 body.light {
   --bg: #f4f6fb;
   --bg2: #ffffff;
@@ -28,24 +28,26 @@ body.light {
   --muted: #475569;
 }
 
+/* ===== RED (FIXED) ===== */
 body.red {
-  --bg: #140709;
-  --bg2: #2a0f14;
+  --bg: #120406;
+  --bg2: #1e0a0e;
   --card: #2a0f14;
-  --accent: #ff0033;
-  --accent2: #ff6b6b;
-  --text: #fff0f0;
-  --muted: #ffb3b3;
+  --accent: #ff3355;
+  --accent2: #ff7a7a;
+  --text: #ffecec;
+  --muted: #ffb6b6;
 }
 
+/* ===== BLUE (FIXED) ===== */
 body.blue {
-  --bg: #050d1a;
-  --bg2: #0b1c3a;
-  --card: #0b1c3a;
-  --accent: #3b82f6;
+  --bg: #030b18;
+  --bg2: #0a1a33;
+  --card: #102a4a;
+  --accent: #60a5fa;
   --accent2: #38bdf8;
-  --text: #e0f2fe;
-  --muted: #94a3b8;
+  --text: #e6f1ff;
+  --muted: #a8c4e6;
 }
 
 /* ===== RESET ===== */
@@ -59,7 +61,7 @@ body.blue {
 body {
   background: radial-gradient(circle at top, var(--bg2), var(--bg));
   color: var(--text);
-  transition: 0.4s;
+  transition: background 0.4s, color 0.4s;
 }
 
 /* ===== HEADER ===== */
@@ -76,23 +78,6 @@ header {
 }
 
 .logo span {
-  color: var(--accent);
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-
-.nav a {
-  color: var(--text);
-  text-decoration: none;
-  font-size: 1.1rem;
-  cursor: pointer;
-}
-
-.nav a:hover {
   color: var(--accent);
 }
 
@@ -129,6 +114,7 @@ header {
   gap: 10px;
   padding: 8px;
   cursor: pointer;
+  color: var(--text);
 }
 
 .theme-dot {
@@ -138,8 +124,8 @@ header {
 }
 
 .dark { background:#0b0f1a; }
-.light { background:#fff; border:1px solid #ccc;}
-.red { background:#ff0033; }
+.light { background:#ffffff; border:1px solid #ccc; }
+.red { background:#ff3355; }
 .blue { background:#3b82f6; }
 
 /* ===== HERO ===== */
@@ -162,7 +148,7 @@ header {
   color: var(--muted);
 }
 
-/* ===== AUTA SECTION ===== */
+/* ===== AUTA ===== */
 #auta {
   padding: 60px 48px;
 }
@@ -180,7 +166,6 @@ header {
   border-radius: 14px;
   color: var(--text);
   cursor: pointer;
-  font-size: 1rem;
 }
 
 .switch button.active {
@@ -188,7 +173,6 @@ header {
   color: #000;
 }
 
-/* ===== PRODUCTS ===== */
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
@@ -216,32 +200,20 @@ footer {
 <header>
   <div class="logo">RC<span>zdobnice</span></div>
 
-  <div class="nav">
-    <a onclick="scrollToAuta()">Auta</a>
-
-    <div class="dropdown" id="dropdown">
-      <div class="dropdown-btn" onclick="toggleDropdown()">🎨 Mód</div>
-      <div class="dropdown-menu">
-        <div class="theme-option" onclick="setTheme('dark')">
-          <div class="theme-dot dark"></div> Dark
-        </div>
-        <div class="theme-option" onclick="setTheme('light')">
-          <div class="theme-dot light"></div> White
-        </div>
-        <div class="theme-option" onclick="setTheme('red')">
-          <div class="theme-dot red"></div> Red
-        </div>
-        <div class="theme-option" onclick="setTheme('blue')">
-          <div class="theme-dot blue"></div> Blue
-        </div>
-      </div>
+  <div class="dropdown" id="dropdown">
+    <div class="dropdown-btn" onclick="toggleDropdown()">🎨 Mód</div>
+    <div class="dropdown-menu">
+      <div class="theme-option" onclick="setTheme('dark')"><div class="theme-dot dark"></div> Dark</div>
+      <div class="theme-option" onclick="setTheme('light')"><div class="theme-dot light"></div> White</div>
+      <div class="theme-option" onclick="setTheme('red')"><div class="theme-dot red"></div> Red</div>
+      <div class="theme-option" onclick="setTheme('blue')"><div class="theme-dot blue"></div> Blue</div>
     </div>
   </div>
 </header>
 
 <section class="hero">
   <h1>RC auta <span>bez kompromisů</span></h1>
-  <p>Vyber si kategorii a styl jízdy.</p>
+  <p>Vyber si styl jízdy a vzhled webu.</p>
 </section>
 
 <section id="auta">
@@ -275,10 +247,6 @@ function toggleDropdown() {
 function setTheme(theme) {
   document.body.className = theme;
   toggleDropdown();
-}
-
-function scrollToAuta() {
-  document.getElementById('auta').scrollIntoView({behavior:'smooth'});
 }
 
 function showCategory(id, btn) {
