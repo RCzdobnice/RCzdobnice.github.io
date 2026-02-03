@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RC Models Shop</title>
+<title>RCzdobnice</title>
 
 <style>
 :root {
   --bg: #0b0f1a;
   --card: #141a2e;
-  --accent: #4da3ff;
-  --accent2: #00ffc8;
+  --accent: #ff4d6d;
+  --accent2: #ff9f1c;
   --text: #eaeaf0;
   --muted: #9aa0b4;
 }
@@ -23,7 +23,7 @@
 }
 
 body {
-  background: radial-gradient(circle at top, #141a3a, var(--bg));
+  background: radial-gradient(circle at top, #2a1420, var(--bg));
   color: var(--text);
 }
 
@@ -83,7 +83,7 @@ nav a:hover {
 }
 
 .hero-box {
-  background: linear-gradient(145deg, #1b2240, #0e1328);
+  background: linear-gradient(145deg, #3a1622, #140910);
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.6);
@@ -93,14 +93,14 @@ nav a:hover {
 .categories {
   padding: 40px 48px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
   gap: 24px;
 }
 
 .category {
   background: var(--card);
-  padding: 28px;
-  border-radius: 16px;
+  padding: 32px;
+  border-radius: 18px;
   text-align: center;
   transition: 0.3s;
 }
@@ -112,6 +112,13 @@ nav a:hover {
 
 .category h3 {
   margin-top: 12px;
+  font-size: 1.3rem;
+}
+
+.category p {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 /* ===== PRODUCTS ===== */
@@ -128,9 +135,9 @@ nav a:hover {
 }
 
 .product {
-  background: linear-gradient(145deg, #1a2142, #0f1530);
+  background: linear-gradient(145deg, #1a1020, #0f0710);
   border-radius: 18px;
-  overflow: hidden;
+  height: 260px;
   transition: 0.3s;
 }
 
@@ -139,36 +146,12 @@ nav a:hover {
   box-shadow: 0 18px 50px rgba(0,0,0,0.6);
 }
 
-.product-img {
-  height: 180px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-}
-
-.product-content {
-  padding: 20px;
-}
-
-.product h4 {
-  margin-bottom: 8px;
-}
-
-.price {
-  color: var(--accent);
-  font-weight: bold;
-  margin: 8px 0;
-}
-
-.product p {
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-
 /* ===== FOOTER ===== */
 footer {
   padding: 40px;
   text-align: center;
   color: var(--muted);
-  background: #080b16;
+  background: #08040a;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -183,80 +166,55 @@ footer {
 <body>
 
 <header>
-  <div class="logo">RC<span>ZONE</span></div>
+  <div class="logo">RC<span>zdobnice</span></div>
   <nav>
-    <a href="#">Modely</a>
-    <a href="#">Díly</a>
-    <a href="#">Příslušenství</a>
-    <a href="#">Kontakt</a>
+    <a href="#">Auta</a>
+    <a href="#">Drift</a>
+    <a href="#">Offroad</a>
   </nav>
 </header>
 
 <section class="hero">
   <div>
-    <h1>Svět <span>RC modelů</span><br>bez kompromisů</h1>
-    <p>Prémiové RC auta, drony, lodě a letadla pro začátečníky i profíky.
-       Design. Výkon. Kontrola.</p>
+    <h1>RC auta<br><span>bez kompromisů</span></h1>
+    <p>Styl, výkon a kontrola. Driftové i offroad RC modely
+       připravené na každý povrch.</p>
   </div>
   <div class="hero-box">
-    <h3>🔥 Nejoblíbenější kategorie</h3>
-    <p>Off-road buggy • Drift auta • FPV drony • RC lodě</p>
+    <h3>🚗 Zaměření</h3>
+    <p>Drift • Offroad • Custom buildy</p>
   </div>
 </section>
 
 <section class="categories">
   <div class="category">
-    🚗
-    <h3>RC Auta</h3>
+    🏁
+    <h3>Drift</h3>
+    <p>Precizní řízení, velké úhly, stylová jízda.</p>
   </div>
+
   <div class="category">
-    ✈️
-    <h3>Letadla</h3>
-  </div>
-  <div class="category">
-    🚁
-    <h3>Drony</h3>
-  </div>
-  <div class="category">
-    🚤
-    <h3>Lodě</h3>
+    🏔️
+    <h3>Offroad</h3>
+    <p>Terén, skoky, maximální odolnost.</p>
   </div>
 </section>
 
 <h2 class="section-title">Vybrané modely</h2>
 
 <section class="products">
-  <div class="product">
-    <div class="product-img"></div>
-    <div class="product-content">
-      <h4>RC Buggy XTR-4S</h4>
-      <div class="price">12 990 Kč</div>
-      <p>4WD pohon, střídavý motor, rychlost až 70 km/h.</p>
-    </div>
-  </div>
-
-  <div class="product">
-    <div class="product-img"></div>
-    <div class="product-content">
-      <h4>FPV Drone Falcon Pro</h4>
-      <div class="price">18 490 Kč</div>
-      <p>FPV kamera, karbonový rám, extrémní obratnost.</p>
-    </div>
-  </div>
-
-  <div class="product">
-    <div class="product-img"></div>
-    <div class="product-content">
-      <h4>RC Drift Car D1</h4>
-      <div class="price">9 990 Kč</div>
-      <p>Perfektní drift úhel, gyro stabilizace.</p>
-    </div>
-  </div>
+  <div class="product"></div>
+  <div class="product"></div>
+  <div class="product"></div>
+  <div class="product"></div>
+  <div class="product"></div>
+  <div class="product"></div>
 </section>
 
 <footer>
-  © 2026 RCZONE • Demo design • GitHub Pages
+  © 2026 RCzdobnice • Demo frontend
 </footer>
 
 </body>
 </html>
+
