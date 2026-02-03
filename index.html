@@ -28,29 +28,30 @@ body.light {
   --muted: #475569;
 }
 
-/* ===== RED (BLACK + ORANGE TEXT FIX) ===== */
+/* ===== RED (TEXT ONLY FIX + CONTRAST) ===== */
 body.red {
   --bg: #120406;
   --bg2: #1c080c;
   --card: #2a0d12;
-  --accent: #ff8c00;   /* ORANŽOVÁ */
-  --accent2: #ffb347;
-  --text: #000000;     /* ČERNÝ TEXT */
-  --muted: #2a2a2a;
+  --accent: #ff8c00;    /* oranžový texty */
+  --accent2: #ffb347;   /* gradient pokud někde bude */
+  --text: #000000;       /* hlavní text */
+  --muted: #2a2a2a;      /* méně agresivní texty */
 }
 
-/* RED MODE SPECIFIC TEXT OVERRIDES */
+/* Red mode specifikace pro dropdown tečku */
+body.red .theme-dot.red {
+  background: #ff8c00;
+}
+
+/* Logo a hero text v red módu */
 body.red .logo span {
-  color: #ff8c00;
-}
-
-body.red .hero h1 {
-  color: #000000;
+  color: #ff8c00; /* RCzdobnice oranžová */
 }
 
 body.red .hero span {
   background: none;
-  color: #ff8c00;
+  color: #ff8c00; /* bez kompromisů oranžová */
   -webkit-text-fill-color: unset;
 }
 
@@ -140,7 +141,7 @@ header {
 
 .dark { background:#0b0f1a; }
 .light { background:#ffffff; border:1px solid #ccc; }
-.red { background:#ff8c00; }
+.red { background:#ff0033; }
 .blue { background:#3b82f6; }
 
 /* ===== HERO ===== */
@@ -168,6 +169,7 @@ header {
   padding: 60px 48px;
 }
 
+/* CENTERED SWITCH */
 .switch {
   display: flex;
   justify-content: center;
@@ -182,6 +184,7 @@ header {
   border-radius: 16px;
   color: var(--text);
   cursor: pointer;
+  font-size: 1rem;
 }
 
 .switch button.active {
@@ -229,7 +232,7 @@ footer {
 
 <section class="hero">
   <h1>RC auta <span>bez kompromisů</span></h1>
-  <p>Vyber si styl jízdy jako profík 😎.</p>
+  <p>Vyber si styl jízdy a přizpůsob si vzhled webu.</p>
 </section>
 
 <section id="auta">
