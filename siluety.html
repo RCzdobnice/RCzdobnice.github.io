@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siluety | RCzdobnice</title>
+
+<style>
+:root {
+  --bg:#050507;
+  --bg2:#0d0d12;
+  --card:#14141c;
+  --accent:#ff8c00;
+  --text:#f1f1f5;
+  --muted:#8b8b99;
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI, system-ui, sans-serif;
+}
+
+body {
+  background:
+    radial-gradient(circle at top,var(--bg2),var(--bg));
+  color:var(--text);
+}
+
+/* HEADER */
+header {
+  padding:36px 56px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo {
+  font-size:1.6rem;
+  font-weight:700;
+}
+
+.logo span {
+  color:var(--accent);
+}
+
+a {
+  color:var(--muted);
+  text-decoration:none;
+}
+
+/* HERO */
+.hero {
+  padding:80px 56px 60px;
+  text-align:center;
+}
+
+.hero h1 {
+  font-size:3.2rem;
+  letter-spacing:2px;
+}
+
+.hero p {
+  margin-top:16px;
+  color:var(--muted);
+  max-width:700px;
+  margin-inline:auto;
+}
+
+/* GRID */
+.grid {
+  padding:0 56px 80px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+  gap:48px;
+}
+
+/* CARD */
+.card {
+  height:360px;
+  border-radius:30px;
+  background:
+    linear-gradient(160deg,var(--card),#0b0b10);
+  position:relative;
+  overflow:hidden;
+  box-shadow:
+    0 40px 80px rgba(0,0,0,.8),
+    inset 0 0 0 1px rgba(255,255,255,.04);
+}
+
+.card::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at center,
+      rgba(255,140,0,0.18),
+      transparent 60%);
+  opacity:.35;
+}
+
+/* FOOTER */
+footer {
+  padding:48px;
+  text-align:center;
+  color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">RC<span>zdobnice</span></div>
+  <a href="index.html">← zpět</a>
+</header>
+
+<section class="hero">
+  <h1>Siluety</h1>
+  <p>Čistá forma. Ticho před výkonem. Design, který mluví sám za sebe.</p>
+</section>
+
+<section class="grid">
+  <div class="card"></div>
+  <div class="card"></div>
+  <div class="card"></div>
+  <div class="card"></div>
+  <div class="card"></div>
+  <div class="card"></div>
+</section>
+
+<footer>
+  © 2026 RCzdobnice
+</footer>
+
+</body>
+</html>
