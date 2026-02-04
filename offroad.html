@@ -6,30 +6,110 @@
 <title>Offroad | RCzdobnice</title>
 
 <style>
-body {
+:root {
+  --bg:#070c08;
+  --bg2:#0f1a12;
+  --card:#14261a;
+  --accent:#60ff8a;
+  --text:#e6f1ea;
+  --muted:#9fb8a7;
+}
+
+* {
   margin:0;
-  font-family:Segoe UI, sans-serif;
-  background:#0b0f1a;
-  color:#eaeaf0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI, system-ui, sans-serif;
 }
 
+body {
+  background:
+    radial-gradient(circle at top, var(--bg2), var(--bg));
+  color:var(--text);
+}
+
+/* HEADER */
 header {
-  padding:24px 48px;
+  padding:32px 56px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-a { color:#ff8c00; text-decoration:none; }
+.logo {
+  font-size:1.6rem;
+  font-weight:700;
+}
 
+.logo span {
+  color:var(--accent);
+}
+
+a {
+  color:var(--muted);
+  text-decoration:none;
+}
+
+/* HERO */
+.hero {
+  padding:60px 56px 40px;
+}
+
+.hero h1 {
+  font-size:3rem;
+}
+
+.hero p {
+  margin-top:12px;
+  color:var(--muted);
+  max-width:600px;
+}
+
+/* GRID */
 .grid {
-  padding:48px;
+  padding:56px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:32px;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:40px;
 }
 
+/* CARD */
 .card {
-  height:280px;
-  background:linear-gradient(145deg,#1a2142,#141a2e);
-  border-radius:22px;
+  height:340px;
+  border-radius:26px;
+  background:
+    linear-gradient(145deg, var(--card), var(--bg2));
+  box-shadow:
+    0 25px 55px rgba(0,0,0,0.7),
+    inset 0 0 0 1px rgba(255,255,255,0.04);
+  position:relative;
+  overflow:hidden;
+  transition:transform .35s ease;
+}
+
+.card::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(120deg, transparent 40%, rgba(96,255,138,0.15), transparent 60%);
+  opacity:0;
+  transition:opacity .35s;
+}
+
+.card:hover {
+  transform:translateY(-8px);
+}
+
+.card:hover::before {
+  opacity:1;
+}
+
+/* FOOTER */
+footer {
+  padding:48px;
+  text-align:center;
+  color:var(--muted);
 }
 </style>
 </head>
@@ -37,16 +117,27 @@ a { color:#ff8c00; text-decoration:none; }
 <body>
 
 <header>
+  <div class="logo">RC<span>zdobnice</span></div>
   <a href="index.html">← zpět</a>
-  <h1>🏔️ Offroad modely</h1>
 </header>
+
+<section class="hero">
+  <h1>🏔️ Offroad kolekce</h1>
+  <p>Hrubý terén, maximální grip a výkon bez kompromisů.</p>
+</section>
 
 <section class="grid">
   <div class="card"></div>
   <div class="card"></div>
   <div class="card"></div>
   <div class="card"></div>
+  <div class="card"></div>
+  <div class="card"></div>
 </section>
+
+<footer>
+  © 2026 RCzdobnice
+</footer>
 
 </body>
 </html>
