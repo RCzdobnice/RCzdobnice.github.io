@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -28,30 +29,21 @@ body.light {
   --muted: #475569;
 }
 
-/* ===== RED (TEXT ONLY FIX + CONTRAST) ===== */
+/* ===== RED (TEXT ONLY) ===== */
 body.red {
   --bg: #120406;
   --bg2: #1c080c;
   --card: #2a0d12;
-  --accent: #ff8c00;    /* oranžový texty */
-  --accent2: #ffb347;   /* gradient pokud někde bude */
-  --text: #000000;       /* hlavní text */
-  --muted: #2a2a2a;      /* méně agresivní texty */
+  --accent: #ff8c00;
+  --accent2: #ffb347;
+  --text: #000000;
+  --muted: #2a2a2a;
 }
 
-/* Red mode specifikace pro dropdown tečku */
-body.red .theme-dot.red {
-  background: #ff8c00;
-}
-
-/* Logo a hero text v red módu */
-body.red .logo span {
-  color: #ff8c00; /* RCzdobnice oranžová */
-}
-
+body.red .logo span,
 body.red .hero span {
+  color: #ff8c00;
   background: none;
-  color: #ff8c00; /* bez kompromisů oranžová */
   -webkit-text-fill-color: unset;
 }
 
@@ -77,7 +69,7 @@ body.blue {
 body {
   background: radial-gradient(circle at top, var(--bg2), var(--bg));
   color: var(--text);
-  transition: background 0.4s, color 0.4s;
+  transition: 0.4s;
 }
 
 /* ===== HEADER ===== */
@@ -95,6 +87,12 @@ header {
 
 .logo span {
   color: var(--accent);
+}
+
+.header-right {
+  display: flex;
+  gap: 16px;
+  align-items: center;
 }
 
 /* ===== DROPDOWN ===== */
@@ -130,7 +128,6 @@ header {
   gap: 10px;
   padding: 8px;
   cursor: pointer;
-  color: var(--text);
 }
 
 .theme-dot {
@@ -140,9 +137,19 @@ header {
 }
 
 .dark { background:#0b0f1a; }
-.light { background:#ffffff; border:1px solid #ccc; }
+.light { background:#fff; border:1px solid #ccc; }
 .red { background:#ff0033; }
 .blue { background:#3b82f6; }
+
+/* ===== CART ===== */
+.cart-btn {
+  background: var(--card);
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--text);
+}
 
 /* ===== HERO ===== */
 .hero {
@@ -169,7 +176,6 @@ header {
   padding: 60px 48px;
 }
 
-/* CENTERED SWITCH */
 .switch {
   display: flex;
   justify-content: center;
@@ -184,7 +190,6 @@ header {
   border-radius: 16px;
   color: var(--text);
   cursor: pointer;
-  font-size: 1rem;
 }
 
 .switch button.active {
@@ -219,20 +224,24 @@ footer {
 <header>
   <div class="logo">RC<span>zdobnice</span></div>
 
-  <div class="dropdown" id="dropdown">
-    <div class="dropdown-btn" onclick="toggleDropdown()">🎨 Mód</div>
-    <div class="dropdown-menu">
-      <div class="theme-option" onclick="setTheme('dark')"><div class="theme-dot dark"></div> Dark</div>
-      <div class="theme-option" onclick="setTheme('light')"><div class="theme-dot light"></div> White</div>
-      <div class="theme-option" onclick="setTheme('red')"><div class="theme-dot red"></div> Red</div>
-      <div class="theme-option" onclick="setTheme('blue')"><div class="theme-dot blue"></div> Blue</div>
+  <div class="header-right">
+    <div class="dropdown" id="dropdown">
+      <div class="dropdown-btn" onclick="toggleDropdown()">🎨 Mód</div>
+      <div class="dropdown-menu">
+        <div class="theme-option" onclick="setTheme('dark')"><div class="theme-dot dark"></div> Dark</div>
+        <div class="theme-option" onclick="setTheme('light')"><div class="theme-dot light"></div> White</div>
+        <div class="theme-option" onclick="setTheme('red')"><div class="theme-dot red"></div> Red</div>
+        <div class="theme-option" onclick="setTheme('blue')"><div class="theme-dot blue"></div> Blue</div>
+      </div>
     </div>
+
+    <a href="kosik.html" class="cart-btn">🛒</a>
   </div>
 </header>
 
 <section class="hero">
   <h1>RC auta <span>bez kompromisů</span></h1>
-  <p>Vyber si styl jízdy a přizpůsob si vzhled webu.</p>
+  <p>Vyber si styl jízdy jako profík 😎</p>
 </section>
 
 <section id="auta">
