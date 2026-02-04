@@ -15,16 +15,11 @@
   --muted:#8b8b99;
 }
 
-* {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Segoe UI, system-ui, sans-serif;
-}
-
+/* BASE */
 body {
-  background:
-    radial-gradient(circle at top,var(--bg2),var(--bg));
+  margin:0;
+  font-family:Segoe UI, system-ui, sans-serif;
+  background:radial-gradient(circle at top,var(--bg2),var(--bg));
   color:var(--text);
 }
 
@@ -52,7 +47,7 @@ a {
 
 /* HERO */
 .hero {
-  padding:80px 56px 60px;
+  padding:60px 56px 40px;
   text-align:center;
 }
 
@@ -64,40 +59,60 @@ a {
 .hero p {
   margin-top:16px;
   color:var(--muted);
-  max-width:700px;
-  margin-inline:auto;
 }
 
-/* GRID */
+/* GRID - pouze jedno okénko */
 .grid {
   padding:0 56px 80px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+  grid-template-columns:1fr;
   gap:48px;
+  justify-items:center;
 }
 
 /* CARD */
 .card {
-  height:360px;
-  border-radius:30px;
-  background:
-    linear-gradient(160deg,var(--card),#0b0b10);
   position:relative;
+  border-radius:30px;
+  height:400px;
+  width:100%;
+  max-width:500px;
+  background:linear-gradient(160deg,var(--card),#0b0b10);
+  box-shadow:0 40px 80px rgba(0,0,0,.8), inset 0 0 0 1px rgba(255,255,255,.04);
   overflow:hidden;
-  box-shadow:
-    0 40px 80px rgba(0,0,0,.8),
-    inset 0 0 0 1px rgba(255,255,255,.04);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:24px;
 }
 
-.card::after {
+/* Horní jemný gradient */
+.card::before {
   content:"";
   position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at center,
-      rgba(255,140,0,0.18),
-      transparent 60%);
-  opacity:.35;
+  top:0;
+  left:0;
+  width:100%;
+  height:50%;
+  background:linear-gradient(to bottom, rgba(255,255,255,0.05), transparent);
+  border-top-left-radius:30px;
+  border-top-right-radius:30px;
+}
+
+/* Spodní text */
+.card .title {
+  font-size:1.5rem;
+  font-weight:600;
+  margin-bottom:12px;
+}
+
+.card .price {
+  position:absolute;
+  bottom:16px;
+  right:16px;
+  font-size:1rem;
+  color:var(--accent);
+  font-weight:600;
 }
 
 /* FOOTER */
@@ -105,6 +120,40 @@ footer {
   padding:48px;
   text-align:center;
   color:var(--muted);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  header {
+    padding:20px;
+    flex-direction:column;
+    gap:12px;
+    align-items:center;
+  }
+
+  .hero {
+    padding:40px 20px 20px;
+  }
+
+  .hero h1 {
+    font-size:2rem;
+  }
+
+  .grid {
+    padding:0 20px 60px;
+  }
+
+  .card {
+    height:300px;
+  }
+
+  .card .title {
+    font-size:1.2rem;
+  }
+
+  .card .price {
+    font-size:.9rem;
+  }
 }
 </style>
 </head>
@@ -122,12 +171,10 @@ footer {
 </section>
 
 <section class="grid">
-  <div class="card"></div>
-  <div class="card"></div>
-  <div class="card"></div>
-  <div class="card"></div>
-  <div class="card"></div>
-  <div class="card"></div>
+  <div class="card">
+    <div class="title">LIAZ 110</div>
+    <div class="price">200 kč</div>
+  </div>
 </section>
 
 <footer>
