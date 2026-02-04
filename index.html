@@ -6,9 +6,6 @@
 <title>RCzdobnice</title>
 
 <style>
-/* =====================
-   THEME VARIABLES
-===================== */
 :root {
   --bg:#0b0f1a;
   --bg2:#141a2e;
@@ -25,7 +22,6 @@ body.white {
   --card:#eceff7;
   --text:#111;
   --muted:#555;
-  --accent:#ff8c00;
 }
 
 /* RED */
@@ -35,7 +31,6 @@ body.red {
   --card:#4a0000;
   --text:#000;
   --muted:#222;
-  --accent:#ff8c00;
 }
 
 /* BLUE */
@@ -48,9 +43,7 @@ body.blue {
   --accent:#4aa3ff;
 }
 
-/* =====================
-   BASE
-===================== */
+/* BASE */
 * {
   margin:0;
   padding:0;
@@ -64,9 +57,7 @@ body {
   min-height:100vh;
 }
 
-/* =====================
-   HEADER
-===================== */
+/* HEADER */
 header {
   padding:24px 48px;
   display:flex;
@@ -83,11 +74,11 @@ header {
   color:var(--accent);
 }
 
-/* RIGHT CONTROLS */
+/* CONTROLS */
 .controls {
   display:flex;
-  align-items:center;
   gap:16px;
+  align-items:center;
 }
 
 .cart-btn {
@@ -120,7 +111,10 @@ header {
   border-radius:14px;
   padding:10px;
   display:none;
-  box-shadow:0 20px 40px rgba(0,0,0,.5);
+}
+
+.dropdown:hover .dropdown-content {
+  display:block;
 }
 
 .dropdown-content button {
@@ -130,8 +124,8 @@ header {
   border:none;
   color:var(--text);
   padding:8px 14px;
-  text-align:left;
   cursor:pointer;
+  text-align:left;
   border-radius:8px;
 }
 
@@ -139,15 +133,11 @@ header {
   background:rgba(255,255,255,.08);
 }
 
-.dropdown:hover .dropdown-content {
-  display:block;
-}
-
-/* =====================
-   HERO
-===================== */
+/* HERO */
 .hero {
-  padding:80px 48px 40px;
+  padding:90px 48px 30px;
+  max-width:900px;
+  margin-left:80px; /* jemné posunutí ke středu */
 }
 
 .hero h1 {
@@ -159,64 +149,36 @@ header {
 }
 
 .hero p {
-  margin-top:16px;
-  color:var(--muted);
+  margin-top:14px;
   font-size:1.1rem;
+  color:var(--muted);
 }
 
-/* =====================
-   SWITCHES
-===================== */
+/* SWITCHES */
 .switches {
-  padding:40px 48px 80px;
+  padding:50px 48px 90px;
   display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:40px;
-}
-
-/* MAIN */
-.switch-main a {
-  text-decoration:none;
-  color:var(--text);
-  background:linear-gradient(145deg,var(--card),var(--bg2));
-  padding:28px 70px;
-  border-radius:28px;
-  font-size:1.5rem;
-  font-weight:600;
-  box-shadow:0 20px 50px rgba(0,0,0,.6);
-  transition:.3s;
-}
-
-.switch-main a:hover {
-  transform:translateY(-6px);
-}
-
-/* SUB */
-.switch-sub {
-  display:flex;
+  justify-content:center;
   gap:32px;
 }
 
-.switch-sub a {
+.switches a {
   text-decoration:none;
   color:var(--text);
   background:linear-gradient(145deg,var(--card),var(--bg2));
-  padding:20px 50px;
-  border-radius:24px;
-  font-size:1.2rem;
+  padding:24px 54px;
+  border-radius:26px;
+  font-size:1.25rem;
   font-weight:600;
-  box-shadow:0 16px 40px rgba(0,0,0,.5);
+  box-shadow:0 18px 45px rgba(0,0,0,.6);
   transition:.3s;
 }
 
-.switch-sub a:hover {
-  transform:translateY(-5px);
+.switches a:hover {
+  transform:translateY(-6px);
 }
 
-/* =====================
-   FOOTER
-===================== */
+/* FOOTER */
 footer {
   padding:40px;
   text-align:center;
@@ -224,7 +186,7 @@ footer {
   color:var(--muted);
 }
 
-/* RED MODE TEXT FIX */
+/* RED TEXT FIX */
 body.red .logo span,
 body.red .hero span {
   color:#ff8c00;
@@ -232,7 +194,7 @@ body.red .hero span {
 </style>
 </head>
 
-<body class="dark">
+<body>
 
 <header>
   <div class="logo">RC<span>zdobnice</span></div>
@@ -241,7 +203,7 @@ body.red .hero span {
     <div class="dropdown">
       <button>🎨 Mód</button>
       <div class="dropdown-content">
-        <button onclick="setMode('dark')">Dark</button>
+        <button onclick="setMode('')">Dark</button>
         <button onclick="setMode('white')">White</button>
         <button onclick="setMode('red')">Red</button>
         <button onclick="setMode('blue')">Blue</button>
@@ -258,16 +220,9 @@ body.red .hero span {
 </section>
 
 <section class="switches">
-
-  <div class="switch-main">
-    <a href="siluety.html">🖤 Siluety</a>
-  </div>
-
-  <div class="switch-sub">
-    <a href="drift.html">🏁 Drift</a>
-    <a href="offroad.html">🏔️ Offroad</a>
-  </div>
-
+  <a href="siluety.html">🖤 Siluety</a>
+  <a href="drift.html">🏁 Drift</a>
+  <a href="offroad.html">🏔️ Offroad</a>
 </section>
 
 <footer>
