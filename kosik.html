@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Košík | RCzdobnice</title>
+
+<style>
+:root {
+  --bg:#0b0f1a;
+  --bg2:#141a2e;
+  --card:#1a2142;
+  --accent:#ff8c00;
+  --text:#eaeaf0;
+  --muted:#9aa0b4;
+}
+
+body {
+  margin:0;
+  font-family:Segoe UI, sans-serif;
+  background:radial-gradient(circle at top,var(--bg2),var(--bg));
+  color:var(--text);
+}
+
+header {
+  padding:24px 48px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo {
+  font-size:1.6rem;
+  font-weight:700;
+}
+
+.logo span {
+  color:var(--accent);
+}
+
+a {
+  color:var(--text);
+  text-decoration:none;
+}
+
+/* ===== KOSIK ===== */
+.container {
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+  gap:40px;
+  padding:40px 48px;
+}
+
+.cart-items, .summary {
+  background:var(--card);
+  border-radius:20px;
+  padding:24px;
+}
+
+.cart-item {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 0;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.cart-item:last-child {
+  border-bottom:none;
+}
+
+.item-info {
+  display:flex;
+  gap:16px;
+  align-items:center;
+}
+
+.item-img {
+  width:80px;
+  height:60px;
+  background:linear-gradient(145deg,#222,#000);
+  border-radius:12px;
+}
+
+.price {
+  font-weight:600;
+}
+
+.summary h2 {
+  margin-bottom:20px;
+}
+
+.summary-row {
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+
+.total {
+  font-size:1.3rem;
+  font-weight:700;
+}
+
+.checkout {
+  margin-top:20px;
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  background:linear-gradient(90deg,var(--accent),#ffb347);
+  font-size:1rem;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.checkout:hover {
+  opacity:0.9;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">RC<span>zdobnice</span></div>
+  <a href="index.html">← zpět do obchodu</a>
+</header>
+
+<div class="container">
+
+  <!-- POLOŽKY -->
+  <div class="cart-items">
+    <h2>Tvůj košík</h2>
+
+    <div class="cart-item">
+      <div class="item-info">
+        <div class="item-img"></div>
+        <div>RC Drift auto</div>
+      </div>
+      <div class="price">12 990 Kč</div>
+    </div>
+
+    <div class="cart-item">
+      <div class="item-info">
+        <div class="item-img"></div>
+        <div>RC Offroad auto</div>
+      </div>
+      <div class="price">15 490 Kč</div>
+    </div>
+  </div>
+
+  <!-- SOUHRN -->
+  <div class="summary">
+    <h2>Souhrn objednávky</h2>
+
+    <div class="summary-row">
+      <span>Mezisoučet</span>
+      <span>28 480 Kč</span>
+    </div>
+
+    <div class="summary-row">
+      <span>Doprava</span>
+      <span>Zdarma</span>
+    </div>
+
+    <hr style="margin:16px 0; border-color:rgba(255,255,255,0.1);">
+
+    <div class="summary-row total">
+      <span>Celkem</span>
+      <span>28 480 Kč</span>
+    </div>
+
+    <button class="checkout">Pokračovat k objednávce</button>
+  </div>
+
+</div>
+
+</body>
+</html>
