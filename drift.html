@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -6,30 +7,112 @@
 <title>Drift | RCzdobnice</title>
 
 <style>
-body {
+:root {
+  --bg:#0b0f1a;
+  --bg2:#141a2e;
+  --card:#1a2142;
+  --accent:#ff8c00;
+  --text:#eaeaf0;
+  --muted:#9aa0b4;
+}
+
+* {
   margin:0;
-  font-family:Segoe UI, sans-serif;
-  background:#0b0f1a;
-  color:#eaeaf0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI, system-ui, sans-serif;
 }
 
+body {
+  background:
+    radial-gradient(circle at top, var(--bg2), var(--bg));
+  color:var(--text);
+}
+
+/* HEADER */
 header {
-  padding:24px 48px;
+  padding:32px 56px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-a { color:#ff8c00; text-decoration:none; }
+.logo {
+  font-size:1.6rem;
+  font-weight:700;
+}
 
+.logo span {
+  color:var(--accent);
+}
+
+a {
+  color:var(--muted);
+  text-decoration:none;
+}
+
+/* HERO */
+.hero {
+  padding:60px 56px 40px;
+}
+
+.hero h1 {
+  font-size:3rem;
+  letter-spacing:1px;
+}
+
+.hero p {
+  margin-top:12px;
+  color:var(--muted);
+  max-width:600px;
+}
+
+/* GRID */
 .grid {
-  padding:48px;
+  padding:56px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:32px;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:40px;
 }
 
+/* CARD */
 .card {
-  height:280px;
-  background:linear-gradient(145deg,#1a2142,#141a2e);
-  border-radius:22px;
+  height:320px;
+  border-radius:28px;
+  background:
+    linear-gradient(145deg, var(--card), var(--bg2));
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.6),
+    inset 0 0 0 1px rgba(255,255,255,0.05);
+  position:relative;
+  overflow:hidden;
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+
+.card::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at top left, rgba(255,140,0,0.15), transparent 60%);
+  opacity:0;
+  transition:opacity .35s;
+}
+
+.card:hover {
+  transform:translateY(-10px);
+  box-shadow:0 40px 80px rgba(0,0,0,0.8);
+}
+
+.card:hover::after {
+  opacity:1;
+}
+
+/* FOOTER */
+footer {
+  padding:48px;
+  text-align:center;
+  color:var(--muted);
 }
 </style>
 </head>
@@ -37,16 +120,27 @@ a { color:#ff8c00; text-decoration:none; }
 <body>
 
 <header>
+  <div class="logo">RC<span>zdobnice</span></div>
   <a href="index.html">← zpět</a>
-  <h1>🏁 Drift modely</h1>
 </header>
+
+<section class="hero">
+  <h1>🏁 Drift kolekce</h1>
+  <p>Precizní řízení, nízký grip a styl. Připraveno na ultimátní drift setup.</p>
+</section>
 
 <section class="grid">
   <div class="card"></div>
   <div class="card"></div>
   <div class="card"></div>
   <div class="card"></div>
+  <div class="card"></div>
+  <div class="card"></div>
 </section>
+
+<footer>
+  © 2026 RCzdobnice
+</footer>
 
 </body>
 </html>
